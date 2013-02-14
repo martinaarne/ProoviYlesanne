@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/EventDatabaseDataContext" />
+  <nestedChildShapes>
+    <classShape Id="acee9a24-90f6-4b51-9d78-e25a4fa11e58" absoluteBounds="0.75, 2.75, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/EventDatabaseDataContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="815c68ee-f542-4f57-b168-8e6824fe2169" absoluteBounds="0.765, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c4a21fc6-ea27-4581-86f5-ae32bb133518" absoluteBounds="3.5, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventDatabaseDataContext/ParticipantPerson" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb52ec1b-7b72-43ff-98a9-933a4aac8a6a" absoluteBounds="3.515, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="962a1cce-4abb-454c-be76-5cb3e1dcb16a" absoluteBounds="3.5, 4, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventDatabaseDataContext/ParticipantCompany" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd848de6-0a20-4f8b-9cd0-c9bc1c5db80a" absoluteBounds="3.515, 4.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 3.01524983723958); (3.5 : 3.01524983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EventDatabaseDataContext/Event/Event_ParticipantPerson" />
+      <nodes>
+        <classShapeMoniker Id="acee9a24-90f6-4b51-9d78-e25a4fa11e58" />
+        <classShapeMoniker Id="c4a21fc6-ea27-4581-86f5-ae32bb133518" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.26044840494792); (3.5 : 4.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EventDatabaseDataContext/Event/Event_ParticipantCompany" />
+      <nodes>
+        <classShapeMoniker Id="acee9a24-90f6-4b51-9d78-e25a4fa11e58" />
+        <classShapeMoniker Id="962a1cce-4abb-454c-be76-5cb3e1dcb16a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

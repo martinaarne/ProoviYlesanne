@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EventDB" EntityNamespace="DBA.EventDatabase" ContextNamespace="DBA.EventDatabase" Class="EventDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MARTIN-PC\SQLEXPRESS;Initial Catalog=EventDB;Integrated Security=True" SettingsObjectName="ProoviYlesanneClassLibrary.Properties.Settings" SettingsPropertyName="EventDB" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="Event_ParticipantPerson" Member="ParticipantPersons" ThisKey="ID" OtherKey="EventID" Type="ParticipantPerson" />
+      <Association Name="Event_ParticipantCompany" Member="ParticipantCompanies" ThisKey="ID" OtherKey="EventID" Type="ParticipantCompany" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParticipantPerson" Member="ParticipantPersons">
+    <Type Name="ParticipantPerson">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Firstname" Type="System.String" DbType="NChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Lastname" Type="System.String" DbType="NChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="IDcode" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="CashPayment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Event_ParticipantPerson" Member="Event" ThisKey="EventID" OtherKey="ID" Type="Event" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParticipantCompany" Member="ParticipantCompanies">
+    <Type Name="ParticipantCompany">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RegistryNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CashPayment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Participants" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Event_ParticipantCompany" Member="Event" ThisKey="EventID" OtherKey="ID" Type="Event" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>
